@@ -1,0 +1,15 @@
+# Compiled source #
+###################
+*.com
+*.class
+
+
+# Packages #
+############
+*.jar
+
+
+# Logs and databases #
+######################
+*.log
+
