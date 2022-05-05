@@ -11,5 +11,13 @@
 
 # Logs and databases #
 ######################
+logs/
+
+
+# Idea #
+########
+.idea/
+*.iml
 *.log
 
+target/

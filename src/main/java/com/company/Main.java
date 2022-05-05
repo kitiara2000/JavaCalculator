@@ -1,12 +1,15 @@
 package com.company;
 
+import com.company.utility.CalcUtility;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static com.company.Utility.writeToFile;
-import static com.company.Operations.*;
+import static com.company.utility.CalcUtility.getNumber;
 
+@Slf4j
 public class Main {
 
     public static void main(String[] args) throws IOException {
@@ -14,57 +17,25 @@ public class Main {
         String input;
 
         do {
-            double number1, number2;
+            double firstNumber, secondNumber;
             System.out.println("Please enter the 1st number:");
-            try {
-                number1 = Double.valueOf(reader.readLine());
-                writeToFile("1st number is " + number1+ "\n\r");
-            } catch (NumberFormatException e) {
-                System.out.println("It is not a number.");
-                input = "Y";
-                continue;
-            }
+            firstNumber = getNumber(1);
 
             System.out.println("Choose an operator: +, -, * or /");
             char operator = reader.readLine().charAt(0);
-            writeToFile("Operator is " + operator + "\n\r");
+            log.info("Operator is " + operator);
 
             System.out.println("Enter the 2nd number");
-            try {
-                number2 = Double.valueOf(reader.readLine());
-                writeToFile("2nd number is " + number2 + "\n\r");
-            } catch (NumberFormatException e) {
-                System.out.println("It is not a number.");
-                input = "Y";
-                continue;
-            }
+            secondNumber = getNumber(2);
 
-            switch (operator) {
-                case '+':
-                    System.out.println(add(number1, number2));
-                    break;
-                case '-':
-                    System.out.println(subtract(number1, number2));
-                    break;
-                case '*':
-                    System.out.println(multiplicate(number1, number2));
-                    break;
-                case '/':
-                    System.out.println(divide(number1, number2));
-                    break;
-                default:
-                    System.out.println("Invalid operator");
-                    writeToFile(operator + " is an invalid operator\r\n");
-                    break;
-            }
+            CalcUtility.calculate(firstNumber, secondNumber, operator);
 
             System.out.println("Continue? Y/N");
             input = reader.readLine();
         }
         while (input.equalsIgnoreCase("Y"));
 
-        System.out.println("Program terminated");
-        writeToFile("Program terminated on user request\r\n");
+        log.info("Program terminated on user request" + System.lineSeparator());
         reader.close();
     }
 }
