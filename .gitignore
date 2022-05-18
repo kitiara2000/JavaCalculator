@@ -1,0 +1,23 @@
+# Compiled source #
+###################
+*.com
+*.class
+
+
+# Packages #
+############
+*.jar
+
+
+# Logs and databases #
+######################
+logs/
+
+
+# Idea #
+########
+.idea/
+*.iml
+*.log
+
+target/

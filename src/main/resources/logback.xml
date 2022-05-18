@@ -1,0 +1,31 @@
+<!--Here's how Logback will attempt to find configuration data:
+Search for files named logback-test.xml, logback.groovy, or logback.xml in the classpath,
+in that order-->
+
+<configuration>
+
+<!--Loggers pass LoggingEvents to Appenders. Appenders do the actual work of logging-->
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--pattern that describes the format of our log message-->
+            <pattern>%d{HH:mm:ss.SSS} %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <property name="LOG_DIR" value="logs" />
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_DIR}/history.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--This tag sets the root logger to DEBUG mode, and associates its output with the Appender named STDOUT:-->
+<!--    The descendant logger inherits the root logger's association with the ConsoleAppender
+ with its association with FileAppender. Appenders are cumulative.-->
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
