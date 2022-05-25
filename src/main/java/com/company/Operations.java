@@ -20,7 +20,7 @@ public class Operations {
         return s;
     }
 
-    public static String multiplicate(double number1, double number2) {
+    public static String multiply(double number1, double number2) {
         double result = number1 * number2;
         String s = number1 + " * " + number2 + " = " + result + System.lineSeparator();
         log.info(s);
@@ -29,15 +29,15 @@ public class Operations {
 
     public static String divide(double number1, double number2) {
         double result;
-        try {
+//        try {
             result = number1 / number2;
             String s = number1 + " / " + number2 + " = " + result + System.lineSeparator();
             log.info(s);
             return s;
-        } catch (ArithmeticException e) {
-            log.error(number1 + " / " + number2 + System.lineSeparator() +
-                    "The divisor cant be 0" + System.lineSeparator());
-            return "The divisor cant be 0";
-        }
+//        } catch (ArithmeticException e) {
+//            log.error(number1 + " / " + number2 + System.lineSeparator() +
+//                    "The divisor cant be 0" + System.lineSeparator());
+//            return "The divisor cant be 0";
+//        }
     }
 }

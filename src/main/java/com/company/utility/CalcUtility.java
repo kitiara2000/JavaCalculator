@@ -45,7 +45,7 @@ public final class CalcUtility {
                 subtract(number1, number2);
                 break;
             case '*':
-                multiplicate(number1, number2);
+                multiply(number1, number2);
                 break;
             case '/':
                 divide(number1, number2);
