@@ -9,7 +9,7 @@ in that order-->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <!--pattern that describes the format of our log message-->
-            <pattern>%d{HH:mm:ss.SSS} %-5level - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} %-5level: %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -18,7 +18,7 @@ in that order-->
         <file>${LOG_DIR}/history.log</file>
         <append>true</append>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35}: %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -27,5 +27,6 @@ in that order-->
  with its association with FileAppender. Appenders are cumulative.-->
     <root level="debug">
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
     </root>
 </configuration>
